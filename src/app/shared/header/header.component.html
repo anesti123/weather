@@ -1,8 +1,8 @@
-<div class="well">
-    <h2>Enter a City:</h2>
-    <input type="text" #zipcode placeholder="City Name" class="form-control">
-    <br>
-    <button class="btn btn-primary" (click)="zipAdded.emit(zipcode.value)">
-        Add location
-    </button>
-</div>
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <div class="navbar-brand">My Weather Application</div>
+    <form class="form-inline">
+        <input type="text" #zipcode placeholder="Please Enter City Name" class="form-control">
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="zipAdded.emit(zipcode.value)"> Add location</button>
+    </form>
+  </nav>

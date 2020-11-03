@@ -7,7 +7,7 @@ import {WeatherService} from '../../services/weather.service';
   styleUrls: ['./current-conditions.component.css']
 })
 export class CurrentConditionsComponent {
-
+    date:Date; 
     @Input()
     zipcodes: Array<String>;
     @Input()
@@ -15,9 +15,14 @@ export class CurrentConditionsComponent {
     @Output()
     zipRemoved = new EventEmitter<string>();
 
-    constructor(public weatherService: WeatherService){ }
+    constructor(public weatherService: WeatherService){
+      setInterval(() => {
+        this.date = new Date()
+      }, 1000)
+     }
 
     getConditions(zip: string) {
         return this.currentConditions.get(zip);
     }
+    
 }
