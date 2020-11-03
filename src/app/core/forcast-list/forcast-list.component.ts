@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { WeatherService } from '../../services/weather.service';
+import { Store } from '@ngrx/store';
+import { selectForecast, State } from '../../store/reducers';
 
 @Component({
-  selector: 'app-forcast-list',
+  selector: 'app-forecasts-list',
   templateUrl: './forcast-list.component.html',
   styleUrls: ['./forcast-list.component.css']
 })
-export class ForcastListComponent implements OnInit {
+export class ForecastsListComponent {
 
-  constructor() { }
+  forecast: any;
 
-  ngOnInit(): void {
+  constructor(private store: Store<State>, public weatherService: WeatherService) {
+    store.select(selectForecast).subscribe((fcast) => this.forecast = fcast);
   }
-
 }

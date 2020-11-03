@@ -9,7 +9,7 @@ import {LocationService} from "../app/services/location.service";
 import {WeatherService} from "../app/services/weather.service";
 
 import { MainPageComponent } from './core/main-page/main-page.component';
-import { ForcastListComponent } from './core/forcast-list/forcast-list.component';
+import { ForecastsListComponent } from './core/forcast-list/forcast-list.component';
 import { CurrentConditionsComponent } from './core/current-conditions/current-conditions.component';
 import { HeaderComponent } from './shared/header/header.component';
 import {RouterModule} from "@angular/router";
@@ -28,7 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-    ForcastListComponent,
+    ForecastsListComponent,
     CurrentConditionsComponent,
     MainPageComponent,
     HeaderComponent
