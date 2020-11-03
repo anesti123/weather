@@ -4,9 +4,9 @@ import { MainPageComponent } from './core/main-page/main-page.component';
 import { ForcastListComponent } from './core/forcast-list/forcast-list.component';
 
 const appRoutes: Routes = [
-  {
-    path: '', component: MainPageComponent
-  },
+  { path: "", redirectTo: "/home", pathMatch: "full" },
+  { path: "**", component: MainPageComponent },
+  { path: "home", component: MainPageComponent },
   {
     path: 'forecast/:zipcode', component: ForcastListComponent
   }

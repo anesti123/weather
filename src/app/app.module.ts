@@ -1,40 +1,50 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import {LocationService} from "../app/services/location.service";
+
+import {WeatherService} from "../app/services/weather.service";
+
 import { MainPageComponent } from './core/main-page/main-page.component';
 import { ForcastListComponent } from './core/forcast-list/forcast-list.component';
 import { CurrentConditionsComponent } from './core/current-conditions/current-conditions.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { FormsModule } from '@angular/forms';
+import {RouterModule} from "@angular/router";
+// import {routing} from "./app.routing";
 import {HttpClientModule} from "@angular/common/http";
-import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './store/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { CurrentConditionsEffects } from '../app/store/effects/current-conditions.effects';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
-
-
+import {ForecastEffects} from '../app/store/effects/forecast.effects';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainPageComponent,
     ForcastListComponent,
     CurrentConditionsComponent,
+    MainPageComponent,
     HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule,
+    AppRoutingModule,
+    // RouterModule.forRoot([]),
+    EffectsModule.forRoot([CurrentConditionsEffects, ForecastEffects]),
+    StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule.forRoot({stateKey: 'router'})
   ],
-  providers: [],
+  providers: [LocationService, WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
