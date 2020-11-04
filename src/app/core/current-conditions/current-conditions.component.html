@@ -1,7 +1,7 @@
-<div class="container-fluid">
+<div class="container-fluid"  >
   <div class="row no-gutter">
-    <div class="col-md-3 col-sm-12  px-3 py-3" *ngFor="let zip  of zipcodes" (click)="showForecast(zip)">
-      <div class="card p-3">
+    <div class="col-md-3 col-sm-12  px-3 py-3" *ngFor="let zip  of zipcodes" (click)="showForecast(zip)"  [@simpleFadeAnimation]="'in'" >
+      <div class="card p-3" >
         <div class="d-flex">
           <h6 class="flex-grow-1">{{getConditions(zip)?.name}}</h6>
           <h6>{{date   | date: "HH:mm"}}</h6>
@@ -29,7 +29,7 @@
       </div>
     </div>
   </div>
-  <div class="pnf p-5" *ngIf="zipcodes.length == 0">
+  <div class="pnf p-5" *ngIf="zipcodes.length == 0" [@lightSpeedIn]="{ value: animationState }" (click)="animationState = !animationState" style="cursor: pointer;">
     <h1>Welcome to the weather app!</h1>
     <h3 class="font-italic p-t-5"> Now, let’s see what the weather is like today by searching on top</h3>
   </div>

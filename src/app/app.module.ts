@@ -12,8 +12,7 @@ import { MainPageComponent } from './core/main-page/main-page.component';
 import { ForecastsListComponent } from './core/forcast-list/forcast-list.component';
 import { CurrentConditionsComponent } from './core/current-conditions/current-conditions.component';
 import { HeaderComponent } from './shared/header/header.component';
-import {RouterModule} from "@angular/router";
-// import {routing} from "./app.routing";
+
 import {HttpClientModule} from "@angular/common/http";
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/reducers';
@@ -25,6 +24,9 @@ import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import {ForecastEffects} from '../app/store/effects/forecast.effects';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     CommonModule,
     // RouterModule.forRoot([]),
     EffectsModule.forRoot([CurrentConditionsEffects, ForecastEffects]),
