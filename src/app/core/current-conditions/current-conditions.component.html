@@ -29,22 +29,8 @@
       </div>
     </div>
   </div>
+  <div class="pnf p-5" *ngIf="zipcodes.length == 0">
+    <h1>Welcome to the weather app!</h1>
+    <h3 class="font-italic p-t-5"> Now, let’s see what the weather is like today by searching on top</h3>
+  </div>
 </div>
-
-<!-- <div>
-        <h3>{{getConditions(zip)?.name}} ({{zip}})</h3>
-        <h4>Current conditions: {{getConditions(zip)?.weather[0].main}}</h4>
-        <h4>Temperatures today:</h4>
-        <p>
-          Current {{getConditions(zip)?.main.temp | number:'.0-0'}}
-          - Max {{getConditions(zip)?.main.temp_max | number:'.0-0'}}
-          - Min {{getConditions(zip)?.main.temp_min | number:'.0-0'}}
-        </p>
-        <p>
-          <a [routerLink]="['/forecast', zip]" >Show 5-day forecast for {{getConditions(zip)?.name}}</a>
-        </p>
-      </div>
-      <div>
-        <span class="close" (click)="zipRemoved.emit(zip)">&times;</span>
-        <img [src]="weatherService.getWeatherIcon(getConditions(zip)?.weather[0].id)">
-      </div> -->
