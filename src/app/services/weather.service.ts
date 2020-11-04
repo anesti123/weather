@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class WeatherService {
@@ -10,6 +10,7 @@ export class WeatherService {
   static APPID = '5a4b2d457ecbef9eb2a71e480b947604';
   static ICON_URL = 'https://raw.githubusercontent.com/udacity/Sunshine-Version-2/sunshine_master/app/src/main/res/drawable-hdpi/';
   private currentConditions = [];
+  private switchButton = new BehaviorSubject<boolean>(true) // manage the state of the  search 
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +20,7 @@ export class WeatherService {
   }
 
   removeCurrentConditions(zipcode: string) {
-    for (let i in this.currentConditions){
+    for (let i in this.currentConditions) {
       if (this.currentConditions[i].zip == zipcode)
         this.currentConditions.splice(+i, 1);
     }
@@ -35,7 +36,13 @@ export class WeatherService {
 
   }
 
-  getWeatherIcon(id){
+
+  //returns switchButton state
+  checkButtonState() {
+    return this.switchButton;
+  }
+
+  getWeatherIcon(id) {
     if (id >= 200 && id <= 232)
       return WeatherService.ICON_URL + "art_storm.png";
     else if (id >= 501 && id <= 511)

@@ -1,8 +1,28 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-sm navbar-dark swatch">
+  <div class="container-fluid">
 
-<nav class="navbar navbar-light bg-light justify-content-between">
-    <div class="navbar-brand">My Weather Application</div>
-    <form class="form-inline">
+    <!-- Logo -->
+    <a class="navbar-brand" routerLink="/" routerLinkActive="active">
+      <h1>Weather App</h1>
+    </a>
+    <!-- Collapse menu -->
+    <div class="collapse navbar-collapse" id="mobile-nav">
+      <form class="form-inline navbar-nav ml-auto" *ngIf="switchButton">
         <input type="text" #zipcode placeholder="Please Enter City Name" class="form-control">
-      <button class="btn btn-outline-success my-2 my-sm-0" (click)="zipAdded.emit(zipcode.value)"> Add location</button>
-    </form>
-  </nav>
+        <button class="btn btn-outline-success my-2 my-sm-0" (click)="zipAdded.emit(zipcode.value)"> Add
+          location</button>
+      </form>
+      <div class="ml-auto" *ngIf="!switchButton">
+        <button class="btn btn-success " [routerLink]="'/'" (click)="switchButton = true">
+          < Back to main page</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Header partition -->
+<svg id="curveDownColor" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="80" viewBox="0 0 100 100"
+  preserveAspectRatio="none" class="partition swatch">
+  <path d="M0 0 C 50 100 80 100 100 0 Z" />
+</svg>

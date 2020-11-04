@@ -13,6 +13,8 @@ export class ForecastsListComponent {
   forecast: any;
 
   constructor(private store: Store<State>, public weatherService: WeatherService) {
+    this.weatherService.checkButtonState().next(false)
     store.select(selectForecast).subscribe((fcast) => this.forecast = fcast);
+
   }
 }

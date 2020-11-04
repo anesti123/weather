@@ -1,12 +1,4 @@
-.close {
-    cursor: pointer;
-  }
-  .flex {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  @import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
 
 html,
 body {
@@ -26,7 +18,7 @@ body {
 
 .card {
     background-color: #ffffff;
-    border-radius: 5px;
+    border-radius: 20px;
     color: #6f707d;
     font-family: 'Marcellus', serif
 }
@@ -53,3 +45,12 @@ body {
 *:focus {
     outline: none
 }
+
+.close {
+    cursor: pointer;
+    margin-left: 15px;
+  }
+  .flex {
+    display: flex;
+    justify-content: space-between;
+  }

@@ -13,7 +13,7 @@ export function zipcodeReducer(state = initialState, action: ZipcodeActions): Zi
   switch (action.type) {
       case ZipcodeActionTypes.AddZipcode:
         return {...state, zipcodes: [...state.zipcodes, action.zipcode]};
-      case ZipcodeActionTypes.RemoveZipcode:
+      case ZipcodeActionTypes.RemoveCity:
           return {...state, zipcodes: state.zipcodes.filter( item => item !== action.zipcode)};
       default:
       return state;

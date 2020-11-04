@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {WeatherService} from '../../services/weather.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { WeatherService } from '../../services/weather.service';
 
 @Component({
   selector: 'app-current-conditions',
@@ -7,22 +7,23 @@ import {WeatherService} from '../../services/weather.service';
   styleUrls: ['./current-conditions.component.css']
 })
 export class CurrentConditionsComponent {
-    date:Date; 
-    @Input()
-    zipcodes: Array<String>;
-    @Input()
-    currentConditions: Map<string, any>;
-    @Output()
-    zipRemoved = new EventEmitter<string>();
+  date: Date;
+  @Input()
+  zipcodes: Array<String>;
+  @Input()
+  currentConditions: Map<string, any>;
+  @Output()
+  zipRemoved = new EventEmitter<string>();
 
-    constructor(public weatherService: WeatherService){
-      setInterval(() => {
-        this.date = new Date()
-      }, 1000)
-     }
+  constructor(public weatherService: WeatherService) {
+    this.weatherService.checkButtonState().next(true)
+    setInterval(() => {
+      this.date = new Date()
+    }, 1000)
+  }
 
-    getConditions(zip: string) {
-        return this.currentConditions.get(zip);
-    }
-    
+  getConditions(zip: string) {
+    return this.currentConditions.get(zip);
+  }
+
 }
