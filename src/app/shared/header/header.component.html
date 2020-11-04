@@ -6,9 +6,8 @@
     <a class="navbar-brand" routerLink="/" routerLinkActive="active">
       <h1>Weather App</h1>
     </a>
-    <!-- Collapse menu -->
-    <div class="collapse navbar-collapse" id="mobile-nav">
-      <form class="form-inline navbar-nav ml-auto" *ngIf="switchButton">
+    <div class="navbar" id="mobile-nav">
+      <form class="form-inline navbar-nav ml-auto" *ngIf="switchButton" style="align-items: baseline;">
         <input type="text" #zipcode placeholder="Please Enter City Name" class="form-control">
         <button class="btn btn-outline-success my-2 my-sm-0" (click)="zipAdded.emit(zipcode.value)"> Add
           location</button>

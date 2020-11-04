@@ -3,7 +3,7 @@
     <div class="col-md-3 col-sm-12  px-3 py-3" *ngFor="let zip  of zipcodes" (click)="showForecast(zip)">
       <div class="card p-3">
         <div class="d-flex">
-          <h6 class="flex-grow-1">{{getConditions(zip)?.name}} ({{zip}})</h6>
+          <h6 class="flex-grow-1">{{getConditions(zip)?.name}}</h6>
           <h6>{{date   | date: "HH:mm"}}</h6>
           <span class="close" (click)="zipRemoved.emit(zip)">&times;</span>
         </div>

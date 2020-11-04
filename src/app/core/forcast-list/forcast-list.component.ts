@@ -13,7 +13,9 @@ export class ForecastsListComponent {
   forecast: any;
 
   constructor(private store: Store<State>, public weatherService: WeatherService) {
+    //set the behavior subject state
     this.weatherService.checkButtonState().next(false)
+    //get forcat from store
     store.select(selectForecast).subscribe((fcast) => this.forecast = fcast);
 
   }
